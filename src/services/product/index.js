@@ -28,9 +28,9 @@ productRouter.get('/', async (req, res, next) => {
             [Op.iLike]: `%${req.query.filter}%`
           }
         })
-      },
-      limit: req.query.limit,
-      offset: parseInt(req.query.limit * req.query.page)
+      }
+      // limit: req.query.limit,
+      // offset: parseInt(req.query.limit * req.query.page)
     })
     res.send(products)
   } catch (error) {
