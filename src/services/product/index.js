@@ -29,6 +29,7 @@ productRouter.get('/', async (req, res, next) => {
           }
         })
       }
+      // includes
       // limit: req.query.limit,
       // offset: parseInt(req.query.limit * req.query.page)
     })
