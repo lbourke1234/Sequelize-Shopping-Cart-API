@@ -26,6 +26,10 @@ const Product = sequelize.define('product', {
   price: {
     type: DataTypes.FLOAT,
     allowNull: false
+  },
+  likeCount: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0
   }
 })
 

@@ -1,7 +1,9 @@
 import express from 'express'
 import models from '../../db/models/index.js'
+// import Product from '../../db/models/product.js'
+// import Likes from '../../db/models/likes.js'
 
-const { User } = models
+const { User, Product, Likes } = models
 
 const usersRouter = express.Router()
 
@@ -17,7 +19,16 @@ usersRouter.get('/', async (req, res, next) => {
 
 usersRouter.get('/:id', async (req, res, next) => {
   try {
-    const user = await User.findByPk(req.params.id)
+    const user = await User.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Product,
+      //     where: {
+      //       userId: req.params.id
+      //     }
+      //   }
+      // ]
+    })
     res.send(user)
   } catch (error) {
     console.log(error)

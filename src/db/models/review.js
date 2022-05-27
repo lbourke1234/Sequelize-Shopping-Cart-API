@@ -10,15 +10,15 @@ const Review = sequelize.define('review', {
   text: {
     type: DataTypes.TEXT,
     allowNull: false
+  },
+  productId: {
+    type: DataTypes.UUID,
+    allowNull: false
+  },
+  userId: {
+    type: DataTypes.UUID,
+    allowNull: false
   }
-  // productId: {
-  //   type: DataTypes.UUID,
-  //   allowNull: false
-  // }
-  // productId: {
-  //   type: DataTypes.UUID,
-  //   allowNull: false
-  // }
 })
 
 export default Review
