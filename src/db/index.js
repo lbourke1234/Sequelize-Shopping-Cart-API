@@ -1,6 +1,9 @@
 import { Sequelize } from 'sequelize'
+import dotenv from 'dotenv'
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+dotenv.config()
+
+const sequelize = new Sequelize(process.env.REACT_APP_DATABASE_URL, {
   logging: false
 })
 

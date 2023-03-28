@@ -7,7 +7,6 @@ import reviewRouter from './services/reviews/index.js'
 import usersRouter from './services/users/index.js'
 import categoryRouter from './services/category/index.js'
 import likesRouter from './services/likes/likes.js'
-// import { Client } from 'pg'
 
 const server = express()
 
@@ -18,32 +17,12 @@ server.use('/reviews', reviewRouter)
 server.use('/users', usersRouter)
 server.use('/categories', categoryRouter)
 server.use('/likes', likesRouter)
-const { PORT } = process.env
-
-// const client = new Client({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: {
-//     rejectUnauthorized: false
-//   }
-// })
-
-// client.connect()
-
-// client.query(
-//   'SELECT table_schema,table_name FROM information_schema.tables;',
-//   (err, res) => {
-//     if (err) throw err
-//     for (let row of res.rows) {
-//       console.log(JSON.stringify(row))
-//     }
-//     client.end()
-//   }
-// )
+const { REACT_APP_PORT } = process.env
 
 const initialize = async () => {
   try {
-    server.listen(PORT, async () => {
-      console.log(`Server is listening on port ${PORT}`)
+    server.listen(process.env.REACT_APP_PORT, async () => {
+      console.log(`Server is listening on port ${REACT_APP_PORT}`)
       await testDB()
       await sequelize.sync()
     })
